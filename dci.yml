@@ -41,6 +41,11 @@ services:
     depends_on:
       api:
         condition: service_healthy
+    environment:
+      - REACT_APP_BACKEND_HOST=http://localhost:5000
+      - REACT_APP_SSO_URL=http://keycloak:8080
+      - REACT_APP_SSO_REALM=dci-test
+      - REACT_APP_SSO_CLIENT_ID=dci
     tty: true
     ports:
       - "8000:8000"
