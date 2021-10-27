@@ -1,0 +1,8 @@
+Code-Review+2: Yassine Lamgarchal <yassine.lamgarchal@redhat.com>
+Workflow+1: Jorge Gallegos <jgallego@redhat.com>
+Verified+2: Zuul CI <zuul@softwarefactory-project.io>
+Submitted-by: Zuul CI <zuul@softwarefactory-project.io>
+Submitted-at: Wed, 27 Oct 2021 14:51:20 +0000
+Reviewed-on: https://softwarefactory-project.io/r/c/dci-dev-env/+/22962
+Project: dci-dev-env
+Branch: refs/heads/master
