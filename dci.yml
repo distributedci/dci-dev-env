@@ -36,46 +36,6 @@ services:
       interval: 15s
       timeout: 5s
       retries: 5
-  ui:
-    build: ${DCI_GIT_REPO_DIR}/dci-ui
-    depends_on:
-      api:
-        condition: service_healthy
-    tty: true
-    ports:
-      - "8000:8000"
-    volumes:
-      - ${DCI_GIT_REPO_DIR}/dci-ui:/opt/dci-ui:Z
-      - /opt/dci-ui/node_modules
-  client:
-    build: ${DCI_GIT_REPO_DIR}/python-dciclient
-    depends_on:
-      api:
-        condition: service_started
-    environment:
-      - DB_HOST=db
-    privileged: true
-    stdin_open: true
-    tty: true
-    volumes:
-      - ${DCI_GIT_REPO_DIR}/python-dciclient:/opt/python-dciclient:Z
-      - ${DCI_GIT_REPO_DIR}/dci-control-server:/opt/dci-control-server:Z
-  ansible:
-    build: ${DCI_GIT_REPO_DIR}/dci-ansible
-    depends_on:
-      api:
-        condition: service_started
-    environment:
-      - DCI_LOGIN=admin
-      - DCI_PASSWORD=admin
-      - DCI_CS_URL=http://api:5000/
-      - DB_HOST=db
-    privileged: true
-    stdin_open: true
-    tty: true
-    volumes:
-      - ${DCI_GIT_REPO_DIR}/python-dciclient:/opt/python-dciclient:Z
-      - ${DCI_GIT_REPO_DIR}/dci-ansible:/opt/dci-ansible:Z
   keycloak:
     image: docker.io/jboss/keycloak
     environment:
@@ -85,33 +45,6 @@ services:
       - "8180:8080"
     healthcheck:
       test: curl -sf http://keycloak:8080/auth
-      interval: 15s
-      timeout: 5s
-      retries: 5
-  elasticsearch:
-    image: docker.elastic.co/elasticsearch/elasticsearch:7.14.1
-    environment:
-      - xpack.security.enabled=false
-      - "discovery.type=single-node"
-    ports:
-      - 9200:9200
-  dci-analytics:
-    build: ${DCI_GIT_REPO_DIR}/dci-analytics
-    depends_on:
-      db:
-        condition: service_healthy
-      elasticsearch:
-        condition: service_healthy
-    environment:
-      - ELASTICSEARCH_URL=http://elasticsearch:9200
-      - POSTGRESQL_HOST=db
-    ports:
-      - "2345:2345"
-    volumes:
-      - ${DCI_GIT_REPO_DIR}/dci-analytics:/opt/dci-analytics:Z
-    restart: always
-    healthcheck:
-      test: curl -sf http://dci-analytics:2345
       interval: 15s
       timeout: 5s
       retries: 5
