@@ -37,7 +37,13 @@ services:
       timeout: 5s
       retries: 5
   ui:
-    build: ${DCI_GIT_REPO_DIR}/dci-ui
+    build:
+      context: ${DCI_GIT_REPO_DIR}/dci-ui
+      args:
+          REACT_APP_BACKEND_HOST: ${REACT_APP_BACKEND_HOST}
+          REACT_APP_SSO_URL: ${REACT_APP_SSO_URL}
+          REACT_APP_SSO_REALM: ${REACT_APP_SSO_REALM}
+          REACT_APP_SSO_CLIENT_ID: ${REACT_APP_SSO_CLIENT_ID}
     depends_on:
       api:
         condition: service_healthy
@@ -45,8 +51,8 @@ services:
     ports:
       - "8000:8000"
     volumes:
-      - ${DCI_GIT_REPO_DIR}/dci-ui:/opt/dci-ui:Z
-      - /opt/dci-ui/node_modules
+      - ${DCI_GIT_REPO_DIR}/dci-ui:/opt/app-root/src:Z
+      - /opt/app-root/src/node_modules
   client:
     build: ${DCI_GIT_REPO_DIR}/python-dciclient
     depends_on:
