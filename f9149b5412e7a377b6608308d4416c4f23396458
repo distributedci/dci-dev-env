@@ -1,0 +1,9 @@
+Code-Review+2: Guillaume Vincent <gvincent@redhat.com>
+Code-Review+2: François Charlier <francois.charlier@redhat.com>
+Workflow+1: Guillaume Vincent <gvincent@redhat.com>
+Verified+2: Zuul CI <zuul@softwarefactory-project.io>
+Submitted-by: Zuul CI <zuul@softwarefactory-project.io>
+Submitted-at: Wed, 23 Mar 2022 09:29:47 +0000
+Reviewed-on: https://softwarefactory-project.io/r/c/dci-dev-env/+/24371
+Project: dci-dev-env
+Branch: refs/heads/master
