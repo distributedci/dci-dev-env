@@ -1,0 +1,8 @@
+Code-Review+2: Yassine Lamgarchal <yassine.lamgarchal@redhat.com>
+Workflow+1: Yassine Lamgarchal <yassine.lamgarchal@redhat.com>
+Verified+2: Zuul CI <zuul@softwarefactory-project.io>
+Submitted-by: Zuul CI <zuul@softwarefactory-project.io>
+Submitted-at: Tue, 24 May 2022 23:33:46 +0000
+Reviewed-on: https://softwarefactory-project.io/r/c/dci-dev-env/+/25029
+Project: dci-dev-env
+Branch: refs/heads/master
