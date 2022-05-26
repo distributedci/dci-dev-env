@@ -50,6 +50,23 @@
       "message": "I wonder if the vault changes are causing the build to fail:\n\n File \"/home/zuul-worker/src/softwarefactory-project.io/dci-pipeline/.tox/functional/lib/python3.6/site-packages/ansible/parsing/vault/__init__.py\", line 380, in get_file_vault_secret\n    raise AnsibleError(\"The vault password file %s was not found\" % this_path",
       "revId": "ae6d9ff73892917207500e94c227db5e368e968c",
       "serverId": "6c1dc8ef-8b94-40e4-bd83-c2359d45ecc0"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "94d02fa1_66918d0c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 667
+      },
+      "writtenOn": "2022-05-26T22:00:29Z",
+      "side": 1,
+      "message": "recheck",
+      "revId": "ae6d9ff73892917207500e94c227db5e368e968c",
+      "serverId": "6c1dc8ef-8b94-40e4-bd83-c2359d45ecc0"
     }
   ]
 }
