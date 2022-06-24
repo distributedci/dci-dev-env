@@ -16,6 +16,24 @@
       "message": "I think you can remove this check, because the solution is the same as the previous check, no? If your check fails in one it fails in both, and if you fix one you fix both.",
       "revId": "07167c00611371e77a6bba2cb9475afb1ae9ee18",
       "serverId": "6c1dc8ef-8b94-40e4-bd83-c2359d45ecc0"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "71a14ed6_e38fef24",
+        "filename": "utils/restore-backup.sh",
+        "patchSetId": 5
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 405
+      },
+      "writtenOn": "2022-06-24T08:58:37Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "178c3065_c08927b6",
+      "revId": "07167c00611371e77a6bba2cb9475afb1ae9ee18",
+      "serverId": "6c1dc8ef-8b94-40e4-bd83-c2359d45ecc0"
     }
   ]
 }
