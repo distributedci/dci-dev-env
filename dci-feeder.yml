@@ -1,0 +1,53 @@
+version: '3'
+services:
+  docker_auth:
+    image: docker.io/cesanta/docker_auth:1
+    command: /config/docker_auth_config.yml
+    volumes:
+      - ${DCI_GIT_REPO_DIR}/dci-feeder-api/dci-docker-auth/config:/config:z
+      - ${DCI_GIT_REPO_DIR}/dci-feeder-api/dci-docker-auth/logs:/logs:Z
+  docker_registry:
+    image: docker.io/registry:2
+    environment:
+      - REGISTRY_AUTH=token
+      - REGISTRY_AUTH_TOKEN_REALM=http://registry:2375/auth
+      - REGISTRY_AUTH_TOKEN_SERVICE=Docker registry
+      - REGISTRY_AUTH_TOKEN_ISSUER=DCI auth server
+      - REGISTRY_AUTH_TOKEN_ROOTCERTBUNDLE=/ssl/server.crt
+      - REGISTRY_HEALTH_STORAGEDRIVER_ENABLED=false
+      - REGISTRY_HTTP_ADDR=0.0.0.0:5010
+      - REGISTRY_HTTP_HOST=http://registry:2375/
+      - REGISTRY_STORAGE=s3
+      - REGISTRY_STORAGE_S3_ACCESSKEY=${AWS_ACCESS_KEY_ID}
+      - REGISTRY_STORAGE_S3_SECRETKET=${AWS_SECRET_ACCESS_KEY}
+      - REGISTRY_STORAGE_S3_REGION=${AWS_REGION}
+      - REGISTRY_STORAGE_S3_REGIONENDPOINT=${S3_ENDPOINT_URL}
+      - REGISTRY_STORAGE_S3_BUCKET=docker-registry
+      - REGISTRY_STORAGE_S3_V4AUTH=true
+    ports:
+      - "5010:5010"
+    volumes:
+      - ${DCI_GIT_REPO_DIR}/dci-feeder-api/dci-docker-auth/config/ssl:/ssl:z
+    restart: on-failure
+  registry:
+    image: docker.io/centos/httpd
+    ports:
+      - "2375:2375"
+    volumes:
+      - ${DCI_GIT_REPO_DIR}/dci-feeder-api/dci-registry/httpd:/etc/httpd/conf.d:ro,Z
+    depends_on:
+      - docker_registry
+      - docker_auth
+  feeder:
+    build: ${DCI_GIT_REPO_DIR}/dci-feeder-api
+    ports:
+      - "5003:80"
+    env_file: ${DCI_GIT_REPO_DIR}/.env
+    volumes:
+      - ${DCI_GIT_REPO_DIR}/dci-feeder-api:/opt/dci-feeder-api:Z
+    depends_on:
+      - api
+      - registry
+      - minio
+    stdin_open: true
+    tty: true
