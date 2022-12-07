@@ -1,0 +1,12 @@
+version: "3"
+services:
+  feeder:
+    build: ${DCI_GIT_REPO_DIR}/dci-feeder-api
+    ports:
+      - "5003:5003"
+    volumes:
+      - ${DCI_GIT_REPO_DIR}/dci-feeder-api:/opt/dci-feeder-api:Z
+    env_file: ${DCI_GIT_REPO_DIR}/.env
+    depends_on:
+      - api
+      - minio
