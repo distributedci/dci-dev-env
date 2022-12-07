@@ -26,7 +26,7 @@ services:
     depends_on:
       - db
       - minio
-    env_file: .env
+    env_file: ${DCI_GIT_REPO_DIR}/.env
     ports:
       - "5000:5000"
     volumes:
@@ -41,7 +41,7 @@ services:
     build: ${DCI_GIT_REPO_DIR}/python-dciclient
     depends_on:
       - api
-    env_file: .env
+    env_file: ${DCI_GIT_REPO_DIR}/.env
     privileged: true
     stdin_open: true
     tty: true
