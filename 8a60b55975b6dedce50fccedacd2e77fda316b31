@@ -1,0 +1,90 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1cb18b2b_46364572",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1440
+      },
+      "writtenOn": "2023-03-29T07:31:45Z",
+      "side": 1,
+      "message": "small comments inlined",
+      "revId": "8a60b55975b6dedce50fccedacd2e77fda316b31",
+      "serverId": "6c1dc8ef-8b94-40e4-bd83-c2359d45ecc0"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2ba37a2f_cccea467",
+        "filename": "dci-feeder.yml",
+        "patchSetId": 1
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1440
+      },
+      "writtenOn": "2023-03-29T07:31:45Z",
+      "side": 1,
+      "message": "Do we need version 7 ?\nBecause we have quay.io/centos7/redis-6-centos7 or rhel8/redis-6 container",
+      "range": {
+        "startLine": 47,
+        "startChar": 11,
+        "endLine": 47,
+        "endChar": 28
+      },
+      "revId": "8a60b55975b6dedce50fccedacd2e77fda316b31",
+      "serverId": "6c1dc8ef-8b94-40e4-bd83-c2359d45ecc0"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "90c50fae_e39de156",
+        "filename": "dci-feeder.yml",
+        "patchSetId": 1
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1440
+      },
+      "writtenOn": "2023-03-29T07:31:45Z",
+      "side": 1,
+      "message": "can we rename this with the action instead of the tool\n\nfeeder_worker for example?",
+      "range": {
+        "startLine": 48,
+        "startChar": 2,
+        "endLine": 48,
+        "endChar": 12
+      },
+      "revId": "8a60b55975b6dedce50fccedacd2e77fda316b31",
+      "serverId": "6c1dc8ef-8b94-40e4-bd83-c2359d45ecc0"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cb9d5f5a_87836817",
+        "filename": "dci-feeder.yml",
+        "patchSetId": 1
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1440
+      },
+      "writtenOn": "2023-03-29T07:31:45Z",
+      "side": 1,
+      "message": "even on dci-dev-env I\u0027m wondering if we can use 2 workers instead of 1. It will be easier to found concurrent bugs.",
+      "range": {
+        "startLine": 56,
+        "startChar": 6,
+        "endLine": 56,
+        "endChar": 17
+      },
+      "revId": "8a60b55975b6dedce50fccedacd2e77fda316b31",
+      "serverId": "6c1dc8ef-8b94-40e4-bd83-c2359d45ecc0"
+    }
+  ]
+}
