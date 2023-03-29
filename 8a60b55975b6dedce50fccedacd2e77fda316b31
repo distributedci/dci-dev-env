@@ -41,6 +41,30 @@
       "serverId": "6c1dc8ef-8b94-40e4-bd83-c2359d45ecc0"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "5f2a9c4d_e5d0d5c9",
+        "filename": "dci-feeder.yml",
+        "patchSetId": 1
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 28
+      },
+      "writtenOn": "2023-03-29T09:50:26Z",
+      "side": 1,
+      "message": "I don\u0027t think there\u0027s an issue with redis 6, I\u0027ll change to a container listed here https://github.com/sclorg/redis-container",
+      "parentUuid": "2ba37a2f_cccea467",
+      "range": {
+        "startLine": 47,
+        "startChar": 11,
+        "endLine": 47,
+        "endChar": 28
+      },
+      "revId": "8a60b55975b6dedce50fccedacd2e77fda316b31",
+      "serverId": "6c1dc8ef-8b94-40e4-bd83-c2359d45ecc0"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "90c50fae_e39de156",
@@ -64,6 +88,30 @@
       "serverId": "6c1dc8ef-8b94-40e4-bd83-c2359d45ecc0"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "6a1010a7_5c130a82",
+        "filename": "dci-feeder.yml",
+        "patchSetId": 1
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 28
+      },
+      "writtenOn": "2023-03-29T09:50:26Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "90c50fae_e39de156",
+      "range": {
+        "startLine": 48,
+        "startChar": 2,
+        "endLine": 48,
+        "endChar": 12
+      },
+      "revId": "8a60b55975b6dedce50fccedacd2e77fda316b31",
+      "serverId": "6c1dc8ef-8b94-40e4-bd83-c2359d45ecc0"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "cb9d5f5a_87836817",
@@ -77,6 +125,30 @@
       "writtenOn": "2023-03-29T07:31:45Z",
       "side": 1,
       "message": "even on dci-dev-env I\u0027m wondering if we can use 2 workers instead of 1. It will be easier to found concurrent bugs.",
+      "range": {
+        "startLine": 56,
+        "startChar": 6,
+        "endLine": 56,
+        "endChar": 17
+      },
+      "revId": "8a60b55975b6dedce50fccedacd2e77fda316b31",
+      "serverId": "6c1dc8ef-8b94-40e4-bd83-c2359d45ecc0"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "95bb39eb_9e8263ab",
+        "filename": "dci-feeder.yml",
+        "patchSetId": 1
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 28
+      },
+      "writtenOn": "2023-03-29T09:50:26Z",
+      "side": 1,
+      "message": "Yes, I had put 2 originally but changed to 1 for easier testing.\nChanging it to 2.",
+      "parentUuid": "cb9d5f5a_87836817",
       "range": {
         "startLine": 56,
         "startChar": 6,
