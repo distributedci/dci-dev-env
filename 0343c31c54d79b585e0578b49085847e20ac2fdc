@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b91a71c7_b9e15e1a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 648
+      },
+      "writtenOn": "2023-07-01T00:20:38Z",
+      "side": 1,
+      "message": "agreed, the added benefit is pg_restore is exactly the version the database would need.",
+      "revId": "0343c31c54d79b585e0578b49085847e20ac2fdc",
+      "serverId": "6c1dc8ef-8b94-40e4-bd83-c2359d45ecc0"
+    }
+  ]
+}
