@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f7270dc8_ad53b7bc",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 648
+      },
+      "writtenOn": "2023-07-01T00:18:21Z",
+      "side": 1,
+      "message": "that\u0027s quite a jump in versions, this is only for dev-env but I\u0027d be worried if our dev-env is a different version from what we have in prod. Tentative +1 but would like someone else to take a 🤓",
+      "revId": "7ba4fe59b7cb216e65b28ba7abf3b3d795d860da",
+      "serverId": "6c1dc8ef-8b94-40e4-bd83-c2359d45ecc0"
+    }
+  ]
+}
