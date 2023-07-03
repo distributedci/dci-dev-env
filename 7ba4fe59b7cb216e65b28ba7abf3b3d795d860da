@@ -16,6 +16,23 @@
       "message": "that\u0027s quite a jump in versions, this is only for dev-env but I\u0027d be worried if our dev-env is a different version from what we have in prod. Tentative +1 but would like someone else to take a 🤓",
       "revId": "7ba4fe59b7cb216e65b28ba7abf3b3d795d860da",
       "serverId": "6c1dc8ef-8b94-40e4-bd83-c2359d45ecc0"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3c8c8af5_339078e4",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 28
+      },
+      "writtenOn": "2023-07-03T11:48:24Z",
+      "side": 1,
+      "message": "Oh, I did not capture the intent in the changelog,\n\nI wanted to do the switch in dci-dev-env to be able to test there before doing the prod database migration later.",
+      "revId": "7ba4fe59b7cb216e65b28ba7abf3b3d795d860da",
+      "serverId": "6c1dc8ef-8b94-40e4-bd83-c2359d45ecc0"
     }
   ]
 }
