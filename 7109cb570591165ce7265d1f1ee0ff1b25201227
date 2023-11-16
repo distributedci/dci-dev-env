@@ -58,6 +58,30 @@
       "serverId": "6c1dc8ef-8b94-40e4-bd83-c2359d45ecc0"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "f1f2d777_7f669bbf",
+        "filename": "README.md",
+        "patchSetId": 3
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1440
+      },
+      "writtenOn": "2023-11-16T14:28:39Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "037ae0fc_bd529001",
+      "range": {
+        "startLine": 23,
+        "startChar": 4,
+        "endLine": 23,
+        "endChar": 15
+      },
+      "revId": "7109cb570591165ce7265d1f1ee0ff1b25201227",
+      "serverId": "6c1dc8ef-8b94-40e4-bd83-c2359d45ecc0"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "7ec2536d_d0300629",
@@ -81,6 +105,30 @@
       "serverId": "6c1dc8ef-8b94-40e4-bd83-c2359d45ecc0"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "9df816e5_81865423",
+        "filename": "dci-tox/Dockerfile",
+        "patchSetId": 3
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1440
+      },
+      "writtenOn": "2023-11-16T14:28:39Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7ec2536d_d0300629",
+      "range": {
+        "startLine": 12,
+        "startChar": 0,
+        "endLine": 14,
+        "endChar": 72
+      },
+      "revId": "7109cb570591165ce7265d1f1ee0ff1b25201227",
+      "serverId": "6c1dc8ef-8b94-40e4-bd83-c2359d45ecc0"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "a3082f2e_78468ff1",
@@ -94,6 +142,24 @@
       "writtenOn": "2023-11-16T14:03:12Z",
       "side": 1,
       "message": "I\u0027m not sure this will work as expected.\nWe should install centos-release-ansible-29, then only start another dnf instance to install ansible.\n\nInstallation of centos-release-ansible-29 can be moved along with epel-release",
+      "revId": "7109cb570591165ce7265d1f1ee0ff1b25201227",
+      "serverId": "6c1dc8ef-8b94-40e4-bd83-c2359d45ecc0"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3ca77484_a4ba8caf",
+        "filename": "dci-tox/Dockerfile",
+        "patchSetId": 3
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1440
+      },
+      "writtenOn": "2023-11-16T14:28:39Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a3082f2e_78468ff1",
       "revId": "7109cb570591165ce7265d1f1ee0ff1b25201227",
       "serverId": "6c1dc8ef-8b94-40e4-bd83-c2359d45ecc0"
     }
