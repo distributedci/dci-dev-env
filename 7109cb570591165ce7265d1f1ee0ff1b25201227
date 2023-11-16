@@ -1,0 +1,84 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "74a5baf3_ff8bbce4",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 28
+      },
+      "writtenOn": "2023-11-16T14:03:12Z",
+      "side": 1,
+      "message": "see inline comments.",
+      "revId": "7109cb570591165ce7265d1f1ee0ff1b25201227",
+      "serverId": "6c1dc8ef-8b94-40e4-bd83-c2359d45ecc0"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "037ae0fc_bd529001",
+        "filename": "README.md",
+        "patchSetId": 3
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 28
+      },
+      "writtenOn": "2023-11-16T14:03:12Z",
+      "side": 1,
+      "message": "Suggestion: container names are simpler by using:\n\n`podman-compose exec -it \u003ccontainer_name\u003e \u003ccommand\u003e`\n\nIn this case the `\u003ccontainer_name\u003e` values becomes the short name from the compose file:\n- api\n- tox\n- …",
+      "range": {
+        "startLine": 23,
+        "startChar": 4,
+        "endLine": 23,
+        "endChar": 15
+      },
+      "revId": "7109cb570591165ce7265d1f1ee0ff1b25201227",
+      "serverId": "6c1dc8ef-8b94-40e4-bd83-c2359d45ecc0"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7ec2536d_d0300629",
+        "filename": "dci-tox/Dockerfile",
+        "patchSetId": 3
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 28
+      },
+      "writtenOn": "2023-11-16T14:03:12Z",
+      "side": 1,
+      "message": "All of this + ansible could be one dnf command to be a little bit faster (one dnf session)",
+      "range": {
+        "startLine": 12,
+        "startChar": 0,
+        "endLine": 14,
+        "endChar": 72
+      },
+      "revId": "7109cb570591165ce7265d1f1ee0ff1b25201227",
+      "serverId": "6c1dc8ef-8b94-40e4-bd83-c2359d45ecc0"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a3082f2e_78468ff1",
+        "filename": "dci-tox/Dockerfile",
+        "patchSetId": 3
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 28
+      },
+      "writtenOn": "2023-11-16T14:03:12Z",
+      "side": 1,
+      "message": "I\u0027m not sure this will work as expected.\nWe should install centos-release-ansible-29, then only start another dnf instance to install ansible.\n\nInstallation of centos-release-ansible-29 can be moved along with epel-release",
+      "revId": "7109cb570591165ce7265d1f1ee0ff1b25201227",
+      "serverId": "6c1dc8ef-8b94-40e4-bd83-c2359d45ecc0"
+    }
+  ]
+}
