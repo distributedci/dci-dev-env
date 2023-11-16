@@ -1,0 +1,6 @@
+mock
+pytest
+pytest-cov
+flake8
+tox
+boto3
