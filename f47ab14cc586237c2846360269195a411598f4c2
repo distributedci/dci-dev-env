@@ -16,6 +16,23 @@
       "message": "Works now with dependencies added back in the dci-dev-env-build job from dci-jobs",
       "revId": "f47ab14cc586237c2846360269195a411598f4c2",
       "serverId": "6c1dc8ef-8b94-40e4-bd83-c2359d45ecc0"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "75e6dd98_ca6f8ec7",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 8
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 28
+      },
+      "writtenOn": "2023-11-29T20:51:00Z",
+      "side": 1,
+      "message": "regate",
+      "revId": "f47ab14cc586237c2846360269195a411598f4c2",
+      "serverId": "6c1dc8ef-8b94-40e4-bd83-c2359d45ecc0"
     }
   ]
 }
