@@ -67,6 +67,24 @@
       "message": "We need git in this container also, I\u0027m getting the following error when running tox at least for python-dciclient\n\n```\npy36 installed: ERROR: Error [Errno 2] No such file or directory: \u0027git\u0027: \u0027git\u0027 while executing command git config --get-regexp \u0027remote\\..*\\.url\u0027,WARNING: cannot determine version of editable source in /opt/dci-control-server (git command not found in path),ERROR: Error [Errno 2] No such file or directory: \u0027git\u0027: \u0027git\u0027 while executing command git config --get-regexp \u0027remote\\..*\\.url\u0027,WARNING: cannot determine version of editable source in /opt/python-dciclient\n```",
       "revId": "c6cd314ef0fc65107b058bf089fa91fe6f2a8eee",
       "serverId": "6c1dc8ef-8b94-40e4-bd83-c2359d45ecc0"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c8850584_5cccb687",
+        "filename": "dci-tox/Dockerfile",
+        "patchSetId": 7
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 28
+      },
+      "writtenOn": "2023-11-29T20:21:57Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d78b122c_6ae2b85d",
+      "revId": "c6cd314ef0fc65107b058bf089fa91fe6f2a8eee",
+      "serverId": "6c1dc8ef-8b94-40e4-bd83-c2359d45ecc0"
     }
   ]
 }
