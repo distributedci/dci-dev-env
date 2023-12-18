@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "da8515f9_c456f5f3",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 28
+      },
+      "writtenOn": "2023-12-18T13:44:34Z",
+      "side": 1,
+      "message": "On a machine with sufficiently enough RAM a full restore goes as this:\n\n## ON SSD\n❯ time ./utils/restore-backup.sh db_dump\n./utils/restore-backup.sh db_dump  0,60s user 0,27s system 0% cpu 5:07,15 total\n\n## ON TMPFS\n❯ time ./utils/restore-backup.sh db_dump\n./utils/restore-backup.sh db_dump  0,52s user 0,27s system 0% cpu 3:42,75 total\n\n## 4.1GB compressed dump\n❯ podman-compose exec db df -h /var/lib/pgsql/data 2\u003e/dev/null\nFilesystem      Size  Used Avail Use% Mounted on\ntmpfs            32G   17G   15G  55% /var/lib/pgsql/data",
+      "revId": "daf38abdc9179959001a4e5355d87d761cfee6bd",
+      "serverId": "6c1dc8ef-8b94-40e4-bd83-c2359d45ecc0"
+    }
+  ]
+}
