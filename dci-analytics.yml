@@ -1,5 +1,9 @@
 version: "3"
 services:
+  rabbitmq:
+    image: docker.io/library/rabbitmq
+    ports:
+      - 5672:5672
   elasticsearch:
     image: docker.elastic.co/elasticsearch/elasticsearch:7.14.1
     environment:
@@ -7,21 +11,42 @@ services:
       - "discovery.type=single-node"
     ports:
       - 9200:9200
+    healthcheck:
+      test: curl -sf http://elasticsearch:9200/_cluster/health
+      interval: 15s
+      timeout: 5s
+      retries: 5
   dci-analytics:
     build: ${DCI_GIT_REPO_DIR}/dci-analytics
     depends_on:
       - db
       - elasticsearch
+      - rabbitmq
     environment:
       - ELASTICSEARCH_URL=http://elasticsearch:9200
       - POSTGRESQL_HOST=db
+      - DCI_PASSWORD=admin
     ports:
       - "2345:2345"
     volumes:
       - ${DCI_GIT_REPO_DIR}/dci-analytics:/opt/dci-analytics:Z
     restart: always
     healthcheck:
-      test: curl -sf http://dci-analytics:2345
+      test: curl -sf http://dci-analytics:2345/ok
       interval: 15s
       timeout: 5s
       retries: 5
+
+  dci-analytics-worker:
+    build:
+      context: ${DCI_GIT_REPO_DIR}/dci-analytics
+      dockerfile: ${DCI_GIT_REPO_DIR}/dci-analytics/Dockerfile_worker
+    depends_on:
+      - elasticsearch
+      - rabbitmq
+    environment:
+      - ELASTICSEARCH_URL=http://elasticsearch:9200
+      - POSTGRESQL_HOST=db
+      - DCI_PASSWORD=admin
+    volumes:
+      - ${DCI_GIT_REPO_DIR}/dci-analytics:/opt/dci-analytics:Z
