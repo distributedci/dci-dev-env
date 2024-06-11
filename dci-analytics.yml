@@ -21,7 +21,7 @@ services:
       - ${DCI_GIT_REPO_DIR}/dci-analytics:/opt/dci-analytics:Z
     restart: always
     healthcheck:
-      test: curl -sf http://dci-analytics:2345
+      test: curl -sf http://dci-analytics:2345/ok
       interval: 15s
       timeout: 5s
       retries: 5
