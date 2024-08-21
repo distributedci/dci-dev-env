@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d0ee917f_0ef0cbfb",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 20
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 28
+      },
+      "writtenOn": "2024-08-21T09:04:52Z",
+      "side": 1,
+      "message": "lgtm else",
+      "revId": "ec6afcc0b2266f99c9b8ad685ef23684859a4c41",
+      "serverId": "6c1dc8ef-8b94-40e4-bd83-c2359d45ecc0"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "828533d6_fcab0ad5",
+        "filename": "dci-tox/Dockerfile",
+        "patchSetId": 20
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 28
+      },
+      "writtenOn": "2024-08-21T09:04:52Z",
+      "side": 1,
+      "message": "To use with tox, we\u0027d be better to not install ansible here but let tox to it in its own virtualenvs (this way we could also test with different versions of python \u0026 ansible more easily).\n\nHaving ansible installed globally causes some problems because we ask tox to create virtual environments with --system-site-pacakges and this prevents e.g. ansible-runner from using the correct ansible+python \"binaries\".",
+      "revId": "ec6afcc0b2266f99c9b8ad685ef23684859a4c41",
+      "serverId": "6c1dc8ef-8b94-40e4-bd83-c2359d45ecc0"
+    }
+  ]
+}
