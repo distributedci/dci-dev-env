@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5e07d7cc_bee47ad4",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 28
+      },
+      "writtenOn": "2024-09-30T10:03:26Z",
+      "side": 1,
+      "message": "I\u0027d prefer to use the \"official\" way to do this with the minio/mc image so that we don\u0027t rely on the fact that minio uses filesystem directly to know buckets.",
+      "revId": "4c401897fea37d6542cc1b20838c8aed22acaffa",
+      "serverId": "6c1dc8ef-8b94-40e4-bd83-c2359d45ecc0"
+    }
+  ]
+}
