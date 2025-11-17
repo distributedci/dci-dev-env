@@ -45,8 +45,6 @@ services:
     depends_on:
       - docker_registry
       - docker_auth
-  redis:
-    image: quay.io/sclorg/redis-6-c8s
   podman_worker:
     build:
       context: ${DCI_GIT_REPO_DIR}/dci-feeder-api
