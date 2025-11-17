@@ -61,12 +61,13 @@ services:
       - db
       - minio
       - redis
+      - auth_tracking
     env_file: .env
     volumes:
       - ${DCI_GIT_REPO_DIR}/dci-control-server:/opt/dci-control-server:z
     restart: on-failure
     deploy:
-      more: replicated
+      mode: replicated
       replicas: 4
     healthcheck:
       test: curl -sf http://api:5000/api/v1
@@ -75,6 +76,14 @@ services:
       retries: 5
     command: /usr/local/bin/gunicorn -c /etc/gunicorn.conf.py --reload -b 0.0.0.0:5000 dci.app:create_app()
     entrypoint: /usr/local/sbin/entrypoint-devenv.sh
+  auth_tracking:
+    image: localhost/dci-dev-env_api:latest
+    depends_on:
+      - db
+      - redis
+    env_file: .env
+    command: bin/dci-sync-redis-auth --interval 30 --threshold 5
+    entrypoint: ""
   tox:
     build: ./dci-tox
     env_file: .env
