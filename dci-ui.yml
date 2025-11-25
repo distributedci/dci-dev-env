@@ -11,7 +11,7 @@ services:
         VITE_SSO_CLIENT_ID: ${SSO_CLIENT_ID}
         VITE_SSO_SCOPE: ${SSO_AUDIENCES}
     depends_on:
-      - api
+      - haproxy
     healthcheck:
       test: curl -sf http://localhost
       interval: 15s
