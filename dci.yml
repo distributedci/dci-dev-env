@@ -91,8 +91,10 @@ services:
     stdin_open: true
     tty: true
     depends_on:
-      - api
+      - haproxy
     volumes:
       - ${DCI_GIT_REPO_DIR}/python-dciclient:/opt/python-dciclient:z
+      - ${DCI_GIT_REPO_DIR}/python-dciauth:/opt/python-dciauth:z
       - ${DCI_GIT_REPO_DIR}/dci-control-server:/opt/dci-control-server:z
       - ${DCI_GIT_REPO_DIR}/dci-ansible:/opt/dci-ansible:z
+      - ${DCI_GIT_REPO_DIR}/dci-feeder-api:/opt/dci-feeder-api:z

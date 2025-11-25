@@ -41,7 +41,7 @@ Here is the list of containers for running the application:
 
 Other services are available in dci-`<service>`.yml
 
-- `ui`: contains the web app of DCI. Accessible via haproxy on <http://localhost:5000>
+- `ui`: contains the web app of DCI. Accessible via haproxy on <http://localhost:8000>
 - `doc`: helper to build the project's documentation ;
 - `analytics`: analytics container running elatic service.
 - `feeder`: feeder container for synchronizing components.
