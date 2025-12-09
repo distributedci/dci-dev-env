@@ -55,6 +55,15 @@ services:
       timeout: 3s
       retries: 5
       start_period: 10s
+  debug_smtpd:
+    image: registry.access.redhat.com/ubi9/python-312
+    entrypoint: >
+      /bin/sh -c "
+      python3 -m pip install aiosmtpd;
+      aiosmtpd -n -l debug_smtpd:8025;
+      "
+  rabbitmq:
+    image: docker.io/library/rabbitmq:latest
   api:
     build: ${DCI_GIT_REPO_DIR}/dci-control-server
     depends_on:
@@ -62,6 +71,8 @@ services:
       - minio
       - redis
       - auth_tracking
+      - rabbitmq
+      - debug_smtpd
     env_file: .env
     volumes:
       - ${DCI_GIT_REPO_DIR}/dci-control-server:/opt/dci-control-server:z
