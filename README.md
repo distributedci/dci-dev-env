@@ -6,7 +6,7 @@ This repository is used to store the configuration of podman compose in order to
 
 To run DCI in `podman-compose`, first clone this repository:
 
-    git clone git@github.com:redhat-cip/dci-dev-env.git
+    git clone git@github.com:distributedci/dci-dev-env.git
 
 Then, bootstrap `dci-dev-env`:
 
