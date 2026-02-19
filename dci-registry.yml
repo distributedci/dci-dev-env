@@ -1,0 +1,11 @@
+version: "3"
+services:
+  registry-proxy:
+    environment:
+      - PROXY_USER=user
+      - PROXY_PASS=pass
+      - QUAY_SECRET=foo
+      - OPENSHIFT_CI_SECRET=bar
+    build: ${DCI_GIT_REPO_DIR}/dci-registry-proxy
+    ports:
+      - 3128:3128
