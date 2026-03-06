@@ -56,7 +56,7 @@ services:
       retries: 5
       start_period: 10s
   debug_smtpd:
-    image: registry.access.redhat.com/ubi9/python-312
+    image: registry.access.redhat.com/ubi10/python-312-minimal
     entrypoint: >
       /bin/sh -c "
       python3 -m pip install aiosmtpd;
@@ -81,7 +81,7 @@ services:
       mode: replicated
       replicas: 4
     healthcheck:
-      test: curl -sf http://api:5000/api/v1
+      test: curl -sf http://localhost:5000/api/v1
       interval: 15s
       timeout: 5s
       retries: 5
