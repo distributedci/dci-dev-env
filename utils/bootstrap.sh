@@ -9,14 +9,7 @@ if [ ! -f dci.yml ]; then
     exit 1
 fi
 
-softwarefactory_username=$(git config --global --get gitreview.username 2>/dev/null)
-
-if [[ -z "${softwarefactory_username}" ]]; then
-    echo What is your Software Factory username?
-    read softwarefactory_username
-fi
-
 cat utils/projects.lst | while read project
 do
-    ([ -d "$project" ] || [ -L "$project" ]) || git clone ssh://${softwarefactory_username}@softwarefactory-project.io:29418/$project
+    ([ -d "$project" ] || [ -L "$project" ]) || git clone git@github.com:distributedci/${project}.git
 done
