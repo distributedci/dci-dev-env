@@ -95,6 +95,13 @@ services:
     env_file: .env
     command: bin/dci-sync-redis-auth --interval 30 --threshold 5
     entrypoint: ""
+  mail_worker:
+    image: localhost/dci-dev-env_api:latest
+    depends_on:
+      - rabbitmq
+    env_file: .env
+    command: bin/run-mail-worker
+    entrypoint: ""
   tox:
     build: ./dci-tox
     env_file: .env
