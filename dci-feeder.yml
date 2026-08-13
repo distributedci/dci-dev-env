@@ -59,7 +59,7 @@ services:
     build: ${DCI_GIT_REPO_DIR}/dci-feeder-api
     ports:
       - "5003:5003"
-    command: gunicorn wsgi:application --access-logfile - --error-logfile - --log-level debug --timeout 0 --bind 0.0.0.0:5003 --reload
+    command: gunicorn wsgi:application --access-logfile - --error-logfile - --log-level debug --timeout 0 --bind 0.0.0.0:5003
     volumes:
       - ${DCI_GIT_REPO_DIR}/dci-feeder-api:/opt/dci-feeder-api:z
       - feeder_worker_logs:/var/log/dci-feeder-api/jobs

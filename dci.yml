@@ -85,7 +85,8 @@ services:
       interval: 15s
       timeout: 5s
       retries: 5
-    command: /usr/local/bin/gunicorn -c /etc/gunicorn.conf.py --reload -b 0.0.0.0:5000 dci.app:create_app()
+    # Forced to redefine the command below because of entrypoint redefinition below
+    command: /usr/local/bin/gunicorn -c /etc/gunicorn.conf.py -b 0.0.0.0:5000 dci.app:create_app()
     entrypoint: /usr/local/sbin/entrypoint-devenv.sh
   auth_tracking:
     image: localhost/dci-dev-env_api:latest

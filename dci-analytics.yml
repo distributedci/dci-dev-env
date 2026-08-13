@@ -17,6 +17,7 @@ services:
     depends_on:
       - db
       - elasticsearch
+    env_file: .env
     environment:
       - ELASTICSEARCH_URL=http://elasticsearch:9200
       - POSTGRESQL_HOST=db
