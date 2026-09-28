@@ -1,16 +1,16 @@
 version: "3"
 services:
   minio:
-    image: quay.io/minio/minio
+    image: cgr.dev/chainguard/minio
     env_file: .env
     ports:
       - "9000:9000"
       - "9001:9001"
     command: server /data --console-address ":9001"
     healthcheck:
-      test: curl -qs http://localhost:9000
+      test: mc ready local
   createbuckets:
-    image: quay.io/minio/mc
+    image: cgr.dev/chainguard/minio
     env_file: .env
     depends_on:
       - minio
