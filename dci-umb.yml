@@ -1,0 +1,9 @@
+version: "3"
+services:
+  dci-umb:
+    build:
+      context: ./dci-umb
+      dockerfile: Dockerfile
+    env_file: .env
+    restart: unless-stopped
+    stop_grace_period: 60s
