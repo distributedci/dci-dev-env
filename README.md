@@ -74,6 +74,13 @@ If you want to start the feeder, do not forget to start the createbuckets contai
 
     podman-compose -f dci.yml -f dci-feeder.yml up -d feeder createbuckets
 
+### UMB/Kafka
+
+If you want to start the kafka listener (dci-umb service) you'll need to export the Kafka password before starting the environment with the additional service
+
+    export KAFKA_SASL_PASSWORD=$(rbw get <password location>)
+    podman-compose -f dci.yml -f dci-feeder.yml -f dci-umb.yml up -d feeder dci-umb createbuckets
+
 ### Documentation Container
 
 This container generates DCI documentation.
