@@ -1,5 +1,18 @@
 version: "3"
+
 services:
+  devenv_ca:
+    build: ./devenv-ca
+    volumes:
+      # Make script live-reusable without rebuilding
+      - ./devenv-ca/generate-certs.sh:/generate-certs.sh:ro,Z
+      - ./devenv-ca/certs:/certs:z
+    healthcheck:
+      test: test -f /certs/ca.crt
+      interval: 5s
+      timeout: 3s
+      retries: 12
+
   minio:
     image: cgr.dev/chainguard/minio
     env_file: .env
@@ -24,11 +37,16 @@ services:
   haproxy:
     image: docker.io/haproxytech/haproxy-alpine:3.0
     depends_on:
-      - api
+      api:
+        condition: healthy
+      devenv_ca:
+        condition: service_healthy
     volumes:
       - ./haproxy:/usr/local/etc/haproxy:ro,Z
+      - ./devenv-ca/certs:/certs:ro,z
     ports:
       - "8000:80"
+      - "8443:443"
       - "8404:8404"
   db:
     image: quay.io/sclorg/postgresql-16-c9s
@@ -36,10 +54,15 @@ services:
       - POSTGRESQL_USER=dci
       - POSTGRESQL_PASSWORD=dci
       - POSTGRESQL_DATABASE=dci
+    depends_on:
+      devenv_ca:
+        condition: service_healthy
     volumes:
       - ./dci-db:/opt/app-root/src:Z
+      - ./devenv-ca/certs:/certs:ro,z
     tmpfs:
       - /var/lib/pgsql/data
+    shm_size: "2gb"
     ports:
       - "5432:5432"
     healthcheck:
@@ -49,8 +72,14 @@ services:
       retries: 5
   redis:
     image: quay.io/sclorg/redis-7-c9s
+    depends_on:
+      devenv_ca:
+        condition: service_healthy
+    volumes:
+      - ./redis/post-init.sh:/usr/share/container-scripts/redis/post-init.sh:ro,Z
+      - ./devenv-ca/certs:/certs:ro,z
     healthcheck:
-      test: redis-cli ping
+      test: redis-cli --tls --cacert /certs/ca.crt ping
       interval: 10s
       timeout: 3s
       retries: 5
@@ -64,6 +93,12 @@ services:
       "
   rabbitmq:
     image: docker.io/library/rabbitmq:latest
+    depends_on:
+      devenv_ca:
+        condition: service_healthy
+    volumes:
+      - ./devenv-ca/certs:/certs:ro,z
+      - ./rabbitmq/tls.conf:/etc/rabbitmq/conf.d/90-tls.conf:z
   api:
     build: ${DCI_GIT_REPO_DIR}/dci-control-server
     depends_on:
@@ -76,6 +111,7 @@ services:
     env_file: .env
     volumes:
       - ${DCI_GIT_REPO_DIR}/dci-control-server:/opt/dci-control-server:z
+      - ./devenv-ca/certs:/certs:z
     restart: on-failure
     deploy:
       mode: replicated
@@ -91,8 +127,15 @@ services:
   auth_tracking:
     image: localhost/dci-dev-env_api:latest
     depends_on:
-      - db
-      - redis
+      devenv_ca:
+        condition: service_healthy
+      db:
+        condition: healthy
+      redis:
+        condition: healthy
+    volumes:
+      - ${DCI_GIT_REPO_DIR}/dci-control-server:/opt/dci-control-server:z
+      - ./devenv-ca/certs:/certs:z
     env_file: .env
     command: bin/dci-sync-redis-auth --interval 30 --threshold 5
     entrypoint: ""
@@ -105,8 +148,11 @@ services:
     depends_on:
       - haproxy
     volumes:
+      - ./devenv-ca/certs:/certs:z
       - ${DCI_GIT_REPO_DIR}/python-dciclient:/opt/python-dciclient:z
       - ${DCI_GIT_REPO_DIR}/python-dciauth:/opt/python-dciauth:z
       - ${DCI_GIT_REPO_DIR}/dci-control-server:/opt/dci-control-server:z
       - ${DCI_GIT_REPO_DIR}/dci-ansible:/opt/dci-ansible:z
       - ${DCI_GIT_REPO_DIR}/dci-feeder-api:/opt/dci-feeder-api:z
+      - ${DCI_GIT_REPO_DIR}/dci-umb:/opt/dci-umb:z
+      - ${DCI_GIT_REPO_DIR}/dci-analytics:/opt/dci-analytics:z
